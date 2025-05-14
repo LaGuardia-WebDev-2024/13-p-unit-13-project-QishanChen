@@ -1,17 +1,18 @@
 <!-- Unit 13 Project
 Requirements
-[  ] Two Interactive Drop-down Inputs 
-[  ] Two Different jQuery Animation Methods 
-[  ] Add Five CSS Declarations
-[  ] Include Three Images
+[yes  ] Two Interactive Drop-down Inputs 
+[ yes ] Two Different jQuery Animation Methods 
+[ yes ] Add Five CSS Declarations
+[ yes ] Include Three Images
 
 Select ONE Additional Feature to Add  
 [ no ] Feature 1 - Google Font
 [ no ] Feature 2 - Upload a Font
 [ no ] Feature 3 - .mouseover() Method
 [ no ] Feature 4 - :hover Feature 
-[ no ] Feature 5 - Add an Additional Interactive Drop-down
+[ yes ] Feature 5 - Add an Additional Interactive Drop-down
 -->
+
 
 <!DOCTYPE html>
 <html>
@@ -21,23 +22,34 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <h1>Quiz About Me</h1>
     <hr />
-    <!-- Movie Question -->
+
+    
+     <img src="https://cdn.glitch.global/b4c3c6d5-3126-4968-922f-289801493f52/thumbnails%2F2ad017c9-1c62-43ed-906d-99f1048e663a.image.png?1747056362022" alt="Image 1">
+    <img src="https://cdn.glitch.global/b4c3c6d5-3126-4968-922f-289801493f52/thumbnails%2F94840b43-6e48-4a1d-acab-56437b888429.image.png?1747056344392" alt="Image 2">
+    <img src="https://cdn.glitch.global/b4c3c6d5-3126-4968-922f-289801493f52/thumbnails%2Fed5ac429-ceb0-491c-88f7-aa6fa596a3b9.image.png?1747056317638" alt="Image 3">
+    <hr />
+
+   
     <form id="movie-form">
       <label>
         🎥 What is my favorite movie?
         <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+          <option value="movie1">If Only</option>
+          <option value="movie2">The Wolf Of Wall Street</option>
+          <option value="movie3">Call Me By Your Name</option>
+          <option value="movie4">Mean Girls</option>
+          
         </select>
+        
       </label>
       <button type="submit">Check Movie Answer</button>
     </form>
+   
     <div id="movie-result"></div>
     <hr />
+
     <!-- Book Question -->
     <form id="book-form">
       <label>
@@ -52,37 +64,90 @@ Select ONE Additional Feature to Add
       <button type="submit">Check Book Answer</button>
     </form>
     <div id="book-result"></div>
+    <hr />
+
+    <!-- Music Question -->
+    <form id="music-form">
+      <label>
+        🎼 What is my favorite Music Styles?
+        <select id="music-answer">
+          <option value="music1">Rock</option>
+          <option value="music2">Jazz</option>
+          <option value="music3">Country</option>
+          <option value="music4">Pop</option>
+        </select>
+      </label>
+      <button type="submit">Check Music Answer</button>
+    </form>
+    <div id="music-result"></div>
+    <hr />
+
+    <!-- Animal Question -->
+    <form id="animal-form">
+      <label>
+        🐶 What is my favorite animal?
+        <select id="animal-answer">
+          <option value="animal1">Cat</option>
+          <option value="animal2">Dog</option>
+          <option value="animal3">Hamster</option>
+          <option value="animal4">Parrot</option>
+        </select>
+      </label>
+      <button type="submit">Check Animal Answer</button>
+    </form>
+    <div id="animal-result"></div>
+    <hr />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-      //Movie Question jQuery Code
+      // Movie
       $("#movie-form").on("submit", function (event) {
         event.preventDefault();
-
-        var $answer = $("#movie-answer");
-        var answer = $answer.val();
-
+        var answer = $("#movie-answer").val();
+        $("#movie-result").hide();
         if (answer === "movie1") {
-          $("#movie-result").text("YESSSS!");
+          $("#movie-result").text("YESSSS!").fadeIn();
         } else {
-          $("#movie-result").text("Try Again!");
+          $("#movie-result").text("Try Again!").fadeIn();
         }
       });
 
-      //Book Question jQuery Code
+      // Book
       $("#book-form").on("submit", function (event) {
         event.preventDefault();
-
-        var $answer = $("#book-answer");
-        var answer = $answer.val();
-
+        var answer = $("#book-answer").val();
+        $("#book-result").hide();
         if (answer === "book1") {
-          $("#book-result").text("YESSSS!");
+          $("#book-result").text("Correct!").slideDown();
         } else {
-          $("#book-result").text("Try Again!");
+          $("#book-result").text("Nope!").slideDown();
+        }
+      });
+
+      // Music
+      $("#music-form").on("submit", function (event) {
+        event.preventDefault();
+        var answer = $("#music-answer").val();
+        $("#music-result").hide();
+        if (answer === "music4") {
+          $("#music-result").text("You got it!").fadeIn();
+        } else {
+          $("#music-result").text("Wrong answer!").fadeIn();
+        }
+      });
+
+      // Animal
+      $("#animal-form").on("submit", function (event) {
+        event.preventDefault();
+        var answer = $("#animal-answer").val();
+        $("#animal-result").hide();
+        if (answer === "animal1") {
+          $("#animal-result").text("That's right!").slideDown();
+        } else {
+          $("#animal-result").text("Nope, try again!").slideDown();
         }
       });
     </script>
   </body>
-
-  <!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
 </html>
+
